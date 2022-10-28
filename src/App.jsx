@@ -1,8 +1,15 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import { CssBaseline } from '@mui/material';
 
-function App() {
-  return <h2>hola mundo</h2>;
+import Routes from './pages/routes';
+
+export default function App() {
+  return (
+    <CssBaseline>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </CssBaseline>
+  );
 }
-
-export default App;
