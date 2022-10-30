@@ -35,7 +35,11 @@ const MenuItem = ({ item }) => {
       <>
         <ListItem onClick={() => setOpen((status) => !status)}>
           <ListItemButton>
-            <ListItemText sx={{ fontWeight: 400 }} primary={item.title} disableTypography />
+            <ListItemText
+              sx={{ fontWeight: 400 }}
+              primary={item.title}
+              disableTypography
+            />
           </ListItemButton>
           {open ? <ExpandMoreIcon /> : <ChevronRightIcon />}
         </ListItem>
@@ -98,13 +102,10 @@ const MenuItem = ({ item }) => {
 const SideMenu = ({ open, onClose }) => {
   const { pathname } = useLocation();
 
-  function fucOnClose() {
-    if (open) {
-      return onClose();
-    }
-  }
-
   useEffect(() => {
+    function fucOnClose() {
+      return open ? onClose() : null;
+    }
     fucOnClose();
   }, [pathname]);
 
